@@ -1,0 +1,37 @@
+/* Internships */
+.adm-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.adm-form-main { display: flex; flex-direction: column; gap: 16px; }
+.adm-form-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+.adm-breadcrumb {
+  font-size: 12px;
+  color: var(--adm-text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.adm-breadcrumb:hover { color: var(--adm-gold); }
+
+.adm-table-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.adm-intern-form .adm-page-header {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .adm-form-layout {
+    grid-template-columns: 1fr;
+  }
+  .adm-form-sidebar {
+    order: -1;
+  }
+}

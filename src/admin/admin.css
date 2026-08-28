@@ -1,0 +1,743 @@
+/* ============================================================
+   DOMINOVA ADMIN — Design System
+   Extends the public site's gold/dark palette for the admin UI.
+   All admin components use these tokens.
+   ============================================================ */
+
+/* Admin CSS Variables (scoped to admin root) */
+.admin-root {
+  /* Backgrounds */
+  --adm-bg: #050505;
+  --adm-bg-2: #0a0a0a;
+  --adm-bg-3: #0f0f0f;
+  --adm-surface: #131313;
+  --adm-surface-2: #181818;
+  --adm-surface-hover: #1e1e1e;
+
+  /* Sidebar */
+  --adm-sidebar-bg: #080808;
+  --adm-sidebar-w: 260px;
+  --adm-topbar-h: 64px;
+
+  /* Brand (matches public site exactly) */
+  --adm-gold: #D4AF37;
+  --adm-gold-light: #E6C766;
+  --adm-gold-dark: #C9A227;
+  --adm-gold-subtle: rgba(212, 175, 55, 0.08);
+  --adm-gold-glow: rgba(212, 175, 55, 0.2);
+
+  /* Borders */
+  --adm-border: rgba(255, 255, 255, 0.06);
+  --adm-border-gold: rgba(212, 175, 55, 0.18);
+
+  /* Text */
+  --adm-text: #e8e8e8;
+  --adm-text-muted: #888888;
+  --adm-text-faint: #444444;
+  --adm-text-inverse: #050505;
+
+  /* Status Colors */
+  --adm-success: #22c55e;
+  --adm-success-bg: rgba(34, 197, 94, 0.1);
+  --adm-error: #ef4444;
+  --adm-error-bg: rgba(239, 68, 68, 0.1);
+  --adm-warning: #f59e0b;
+  --adm-warning-bg: rgba(245, 158, 11, 0.1);
+  --adm-info: #3b82f6;
+  --adm-info-bg: rgba(59, 130, 246, 0.1);
+
+  /* Typography (same fonts as public site) */
+  --adm-font-display: 'Space Grotesk', sans-serif;
+  --adm-font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --adm-radius: 6px;
+  --adm-radius-lg: 10px;
+
+  /* Transitions */
+  --adm-transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Z-Indices */
+  --adm-z-sidebar: 100;
+  --adm-z-topbar: 101;
+  --adm-z-modal: 200;
+  --adm-z-toast: 300;
+}
+
+/* Admin Reset */
+.admin-root *,
+.admin-root *::before,
+.admin-root *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-root {
+  font-family: var(--adm-font-body);
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.admin-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.admin-root button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.admin-root ul { list-style: none; }
+.admin-root img { max-width: 100%; display: block; }
+
+/* ── Admin Typography ──────────────────────────────────── */
+.adm-page-title {
+  font-family: var(--adm-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--adm-text);
+  letter-spacing: -0.02em;
+}
+
+.adm-section-title {
+  font-family: var(--adm-font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--adm-text);
+  letter-spacing: -0.01em;
+}
+
+.adm-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--adm-gold);
+}
+
+/* ── Admin Buttons ─────────────────────────────────────── */
+.adm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--adm-radius);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--adm-transition);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.adm-btn-primary {
+  background: var(--adm-gold);
+  color: var(--adm-text-inverse);
+  border-color: var(--adm-gold);
+}
+.adm-btn-primary:hover {
+  background: var(--adm-gold-light);
+  border-color: var(--adm-gold-light);
+}
+
+.adm-btn-secondary {
+  background: var(--adm-surface);
+  color: var(--adm-text);
+  border-color: var(--adm-border);
+}
+.adm-btn-secondary:hover {
+  background: var(--adm-surface-hover);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.adm-btn-ghost {
+  background: transparent;
+  color: var(--adm-text-muted);
+  border-color: transparent;
+}
+.adm-btn-ghost:hover {
+  background: var(--adm-surface);
+  color: var(--adm-text);
+}
+
+.adm-btn-danger {
+  background: var(--adm-error-bg);
+  color: var(--adm-error);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+.adm-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.adm-btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.adm-btn-lg {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.adm-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Admin Cards ───────────────────────────────────────── */
+.adm-card {
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-lg);
+  padding: 20px 24px;
+  transition: border-color var(--adm-transition);
+}
+.adm-card:hover {
+  border-color: var(--adm-border-gold);
+}
+
+/* ── Admin Form Fields ─────────────────────────────────── */
+.adm-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adm-form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--adm-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.adm-form-label .required {
+  color: var(--adm-error);
+  margin-left: 3px;
+}
+
+.adm-form-input,
+.adm-form-select,
+.adm-form-textarea {
+  width: 100%;
+  background: var(--adm-bg-2);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius);
+  color: var(--adm-text);
+  font-family: var(--adm-font-body);
+  font-size: 13px;
+  padding: 9px 12px;
+  transition: border-color var(--adm-transition);
+  outline: none;
+  appearance: none;
+}
+
+.adm-form-input:focus,
+.adm-form-select:focus,
+.adm-form-textarea:focus {
+  border-color: var(--adm-gold);
+  box-shadow: 0 0 0 3px var(--adm-gold-subtle);
+}
+
+.adm-form-input::placeholder,
+.adm-form-textarea::placeholder {
+  color: var(--adm-text-faint);
+}
+
+.adm-form-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.adm-form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888888' d='M6 8L1 3h10L6 8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.adm-form-error {
+  font-size: 11px;
+  color: var(--adm-error);
+  margin-top: 2px;
+}
+
+.adm-form-hint {
+  font-size: 11px;
+  color: var(--adm-text-faint);
+  margin-top: 2px;
+}
+
+.adm-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ── Admin Toggle/Checkbox ─────────────────────────────── */
+.adm-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.adm-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.adm-toggle-track {
+  width: 36px;
+  height: 20px;
+  background: var(--adm-surface-2);
+  border: 1px solid var(--adm-border);
+  border-radius: 10px;
+  position: relative;
+  transition: all var(--adm-transition);
+  flex-shrink: 0;
+}
+
+.adm-toggle input:checked + .adm-toggle-track {
+  background: var(--adm-gold);
+  border-color: var(--adm-gold);
+}
+
+.adm-toggle-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: var(--adm-text-muted);
+  border-radius: 50%;
+  transition: all var(--adm-transition);
+}
+
+.adm-toggle input:checked + .adm-toggle-track::after {
+  transform: translateX(16px);
+  background: var(--adm-text-inverse);
+}
+
+/* ── Admin Search ──────────────────────────────────────── */
+.adm-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.adm-search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--adm-text-faint);
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+}
+
+.adm-search input {
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius);
+  color: var(--adm-text);
+  font-family: var(--adm-font-body);
+  font-size: 13px;
+  padding: 8px 12px 8px 36px;
+  width: 240px;
+  outline: none;
+  transition: border-color var(--adm-transition);
+}
+
+.adm-search input:focus {
+  border-color: var(--adm-gold);
+  width: 280px;
+}
+
+.adm-search input::placeholder {
+  color: var(--adm-text-faint);
+}
+
+/* ── Admin Table ───────────────────────────────────────── */
+.adm-table-wrap {
+  overflow-x: auto;
+}
+
+.adm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.adm-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--adm-text-muted);
+  border-bottom: 1px solid var(--adm-border);
+  background: var(--adm-bg-2);
+  white-space: nowrap;
+}
+
+.adm-table th.sortable {
+  cursor: pointer;
+}
+.adm-table th.sortable:hover {
+  color: var(--adm-text);
+}
+
+.adm-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--adm-border);
+  color: var(--adm-text);
+  vertical-align: middle;
+}
+
+.adm-table tr:hover td {
+  background: var(--adm-surface);
+}
+
+.adm-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Status Badges ─────────────────────────────────────── */
+.adm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.adm-badge-published { background: var(--adm-success-bg); color: var(--adm-success); }
+.adm-badge-draft { background: var(--adm-warning-bg); color: var(--adm-warning); }
+.adm-badge-archived { background: rgba(255,255,255,0.06); color: var(--adm-text-muted); }
+.adm-badge-new { background: var(--adm-info-bg); color: var(--adm-info); }
+.adm-badge-reviewing { background: var(--adm-warning-bg); color: var(--adm-warning); }
+.adm-badge-shortlisted { background: var(--adm-gold-subtle); color: var(--adm-gold); }
+.adm-badge-accepted { background: var(--adm-success-bg); color: var(--adm-success); }
+.adm-badge-rejected { background: var(--adm-error-bg); color: var(--adm-error); }
+.adm-badge-completed { background: rgba(255,255,255,0.06); color: var(--adm-text-muted); }
+.adm-badge-unread { background: var(--adm-info-bg); color: var(--adm-info); }
+.adm-badge-read { background: rgba(255,255,255,0.04); color: var(--adm-text-faint); }
+
+/* ── Admin Pagination ──────────────────────────────────── */
+.adm-pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.adm-pagination button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--adm-radius);
+  font-size: 13px;
+  transition: all var(--adm-transition);
+  border: 1px solid transparent;
+  color: var(--adm-text-muted);
+}
+
+.adm-pagination button:hover {
+  background: var(--adm-surface);
+  color: var(--adm-text);
+}
+
+.adm-pagination button.active {
+  background: var(--adm-gold-subtle);
+  border-color: var(--adm-border-gold);
+  color: var(--adm-gold);
+  font-weight: 600;
+}
+
+.adm-pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Loading / Empty / Error States ───────────────────── */
+.adm-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  gap: 12px;
+}
+
+.adm-state-icon {
+  font-size: 32px;
+  opacity: 0.5;
+}
+
+.adm-state-title {
+  font-family: var(--adm-font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--adm-text);
+}
+
+.adm-state-desc {
+  font-size: 13px;
+  color: var(--adm-text-muted);
+  max-width: 320px;
+}
+
+.adm-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--adm-border);
+  border-top-color: var(--adm-gold);
+  border-radius: 50%;
+  animation: adm-spin 0.7s linear infinite;
+}
+
+@keyframes adm-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Tags Input ────────────────────────────────────────── */
+.adm-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  background: var(--adm-bg-2);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius);
+  min-height: 44px;
+  cursor: text;
+  transition: border-color var(--adm-transition);
+}
+
+.adm-tags-wrap:focus-within {
+  border-color: var(--adm-gold);
+  box-shadow: 0 0 0 3px var(--adm-gold-subtle);
+}
+
+.adm-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--adm-surface-2);
+  border: 1px solid var(--adm-border);
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: var(--adm-text);
+}
+
+.adm-tag-chip button {
+  opacity: 0.6;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.adm-tag-chip button:hover { opacity: 1; }
+
+.adm-tags-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--adm-font-body);
+  font-size: 13px;
+  color: var(--adm-text);
+  min-width: 100px;
+  flex: 1;
+}
+
+/* ── Page Header ───────────────────────────────────────── */
+.adm-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.adm-page-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.adm-page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Admin Toolbar (search + filters) ─────────────────── */
+.adm-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--adm-border);
+  background: var(--adm-bg-2);
+}
+
+/* ── Modal / Dialog ────────────────────────────────────── */
+.adm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: var(--adm-z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.adm-modal {
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-lg);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: adm-modal-in 0.2s ease;
+}
+
+@keyframes adm-modal-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.adm-modal-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--adm-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adm-modal-title {
+  font-family: var(--adm-font-display);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.adm-modal-close {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--adm-radius);
+  color: var(--adm-text-muted);
+  font-size: 18px;
+  transition: all var(--adm-transition);
+}
+.adm-modal-close:hover { background: var(--adm-surface-2); color: var(--adm-text); }
+
+.adm-modal-body {
+  padding: 20px 24px;
+}
+
+.adm-modal-footer {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--adm-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ── Toast Notifications ───────────────────────────────── */
+.adm-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: var(--adm-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.adm-toast {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--adm-surface-2);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-lg);
+  font-size: 13px;
+  min-width: 280px;
+  max-width: 380px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  animation: adm-toast-in 0.25s ease;
+}
+
+@keyframes adm-toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.adm-toast.success { border-left: 3px solid var(--adm-success); }
+.adm-toast.error   { border-left: 3px solid var(--adm-error); }
+.adm-toast.warning { border-left: 3px solid var(--adm-warning); }
+.adm-toast.info    { border-left: 3px solid var(--adm-info); }
+
+.adm-toast-icon { font-size: 16px; flex-shrink: 0; }
+.adm-toast-msg  { flex: 1; line-height: 1.4; }
+.adm-toast-close {
+  margin-left: auto;
+  opacity: 0.5;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.adm-toast-close:hover { opacity: 1; }
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .adm-form-row {
+    grid-template-columns: 1fr;
+  }
+  .adm-search input {
+    width: 100%;
+  }
+  .adm-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .adm-table th,
+  .adm-table td {
+    padding: 10px 10px;
+  }
+  .adm-modal {
+    max-height: 95vh;
+  }
+}

@@ -1,112 +1,63 @@
 import './index.css';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect, lazy, Suspense } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useCustomCursor } from './hooks/useCustomCursor';
+import { seedDatabase } from './lib/data/seeds';
 
-import LogoIntro from './components/LogoIntro/LogoIntro';
-import Header from './components/Header/Header';
-import CinematicHero from './components/CinematicHero/CinematicHero';
-import GoldTunnel from './components/Common/GoldTunnel';
-import About from './components/About/About';
-import Services from './components/Services/Services';
-import Technology from './components/Technology/Technology';
-import WhyDominova from './components/WhyDominova/WhyDominova';
-import Internship from './components/Internship/Internship';
-import Stats from './components/Stats/Stats';
-import Process from './components/Process/Process';
-import Work from './components/Work/Work';
-import CTA from './components/CTA/CTA';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
-import InternshipModal from './components/InternshipModal/InternshipModal';
+// Public website components
+import PublicSite from './PublicSite';
+
+// Admin panel (lazy-loaded — does NOT affect public bundle)
+const AdminApp = lazy(() => import('./admin/AdminApp'));
+
+// Initialize database on first load (runs once, no-op after that)
+seedDatabase().catch(console.error);
 
 export default function App() {
-  useCustomCursor();
-
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedDomain, setSelectedDomain] = useState('');
-
-  const handleOpenInternshipModal = (domain?: string) => {
-    if (domain) setSelectedDomain(domain);
-    setModalOpen(true);
-  };
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
 
   useEffect(() => {
-    const handleLoad = () => ScrollTrigger.refresh();
-    if (document.readyState === 'complete') {
-      ScrollTrigger.refresh();
-    } else {
-      window.addEventListener('load', handleLoad, { once: true });
+    if (!isAdmin) {
+      const handleLoad = () => ScrollTrigger.refresh();
+      if (document.readyState === 'complete') {
+        ScrollTrigger.refresh();
+      } else {
+        window.addEventListener('load', handleLoad, { once: true });
+      }
+      return () => window.removeEventListener('load', handleLoad);
     }
-    return () => window.removeEventListener('load', handleLoad);
-  }, []);
+  }, [isAdmin]);
 
   return (
-    <div className="app" id="app">
-      {/* 1. Page-Load Logo Intro */}
-      <LogoIntro />
-
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-
-      {/* 2. Header */}
-      <Header onOpenInternshipModal={() => handleOpenInternshipModal()} />
-
-      <main id="main-content">
-        {/* 3. Hero */}
-        <CinematicHero onOpenInternshipModal={() => handleOpenInternshipModal()} />
-
-        {/* Spatial Tunnel Transition */}
-        <GoldTunnel videoSrc="/videos/now_create_a_video.mp4" />
-
-        {/* 4. About */}
-        <About />
-
-        {/* 5. Services Showcase */}
-        <Services />
-
-        {/* Spatial Tunnel Transition */}
-        <GoldTunnel label="INFRASTRUCTURE ECOSYSTEM" />
-
-        {/* 6. Technology Capabilities */}
-        <Technology />
-
-        {/* 7. Why Dominova */}
-        <WhyDominova />
-
-        {/* 8. Internship Program */}
-        <Internship onApplyDomain={(domain) => handleOpenInternshipModal(domain)} />
-
-        {/* 9. Animated Stats */}
-        <Stats />
-
-        {/* 10. Process Tunnel */}
-        <Process />
-
-        {/* Spatial Tunnel Transition */}
-        <GoldTunnel label="FEATURED PROJECT SHOWCASE" />
-
-        {/* 11. Spatial Portfolio */}
-        <Work />
-
-        {/* 12. Final CTA */}
-        <CTA onOpenInternshipModal={() => handleOpenInternshipModal()} />
-
-        {/* 13. Contact Form */}
-        <Contact initialDomain={selectedDomain} />
-      </main>
-
-      {/* 14. Footer */}
-      <Footer />
-
-      {/* 15. Internship Modal */}
-      <InternshipModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        defaultDomain={selectedDomain}
+    <Routes>
+      {/* Admin area — lazy loaded, completely isolated */}
+      <Route
+        path="/admin/*"
+        element={
+          <Suspense fallback={
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100vh',
+              background: '#050505',
+              color: '#D4AF37',
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: '14px',
+              letterSpacing: '0.1em',
+            }}>
+              Loading Admin Panel...
+            </div>
+          }>
+            <AdminApp />
+          </Suspense>
+        }
       />
-    </div>
+
+      {/* Public website — all routes fallthrough to single-page app */}
+      <Route path="/*" element={<PublicSite />} />
+    </Routes>
   );
 }

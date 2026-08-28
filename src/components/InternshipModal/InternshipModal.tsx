@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { applications } from '../../lib/data/db';
 import './InternshipModal.css';
 
 interface InternshipModalProps {
@@ -35,6 +36,23 @@ export default function InternshipModal({ isOpen, onClose, defaultDomain = '' }:
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      // Save to admin applications inbox
+      applications.create({
+        applicantName: name,
+        email,
+        phone,
+        college,
+        yearOfStudy: year,
+        internshipId: '',
+        internshipTitle: selectedDomain + ' Internship',
+        status: 'new',
+        notes: '',
+        appliedAt: new Date().toISOString(),
+      });
+    } catch {
+      console.error('[Dominova] Failed to save application to admin inbox.');
+    }
     setSubmitted(true);
   };
 

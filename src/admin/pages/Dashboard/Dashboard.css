@@ -1,0 +1,207 @@
+/* Dashboard */
+
+.adm-dashboard__welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.adm-dashboard__subtitle {
+  font-size: 13px;
+  color: var(--adm-text-muted);
+  margin-top: 4px;
+}
+
+/* Stat Cards */
+.adm-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.adm-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-lg);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.adm-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--adm-border-gold);
+}
+
+.adm-stat-card__icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.adm-stat-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.adm-stat-card__value {
+  font-family: var(--adm-font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--adm-text);
+  line-height: 1;
+}
+
+.adm-stat-card__label {
+  font-size: 12px;
+  color: var(--adm-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Accents on stat cards */
+.adm-stat-card--gold { border-left: 3px solid var(--adm-gold); }
+.adm-stat-card--blue { border-left: 3px solid var(--adm-info); }
+.adm-stat-card--green { border-left: 3px solid var(--adm-success); }
+.adm-stat-card--purple { border-left: 3px solid #8b5cf6; }
+.adm-stat-card--red { border-left: 3px solid var(--adm-error); }
+
+/* Grid */
+.adm-dashboard__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.adm-dashboard__panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.adm-dashboard__panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* List items */
+.adm-dashboard__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.adm-dashboard__list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.adm-dashboard__list-item:hover {
+  background: var(--adm-surface-2);
+}
+
+.adm-dashboard__list-item--unread {
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.adm-dashboard__list-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--adm-gold-subtle);
+  border: 1px solid var(--adm-border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--adm-font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--adm-gold);
+  flex-shrink: 0;
+}
+
+.adm-dashboard__list-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.adm-dashboard__list-body strong {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--adm-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adm-dashboard__list-body span {
+  font-size: 11px;
+  color: var(--adm-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Quick Actions */
+.adm-dashboard__quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.adm-dashboard__quick-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--adm-bg-2);
+  border: 1px solid var(--adm-border);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--adm-text-muted);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.adm-dashboard__quick-btn:hover {
+  background: var(--adm-gold-subtle);
+  border-color: var(--adm-border-gold);
+  color: var(--adm-gold);
+}
+
+.adm-dashboard__quick-icon {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .adm-dashboard__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .adm-dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .adm-dashboard__quick-actions {
+    grid-template-columns: 1fr;
+  }
+}

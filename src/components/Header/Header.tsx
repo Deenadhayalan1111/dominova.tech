@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import DominovaLogo from '../Common/DominovaLogo';
 import './Header.css';
 
@@ -9,6 +10,7 @@ const navLinks = [
   { label: 'Technology', href: '#technology' },
   { label: 'Internships', href: '#internship' },
   { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -20,6 +22,9 @@ export default function Header({ onOpenInternshipModal }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -34,11 +39,33 @@ export default function Header({ onOpenInternshipModal }: HeaderProps) {
     };
   }, [menuOpen]);
 
+  // Handle cross-page scrolling and navigation
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    
+    if (href.startsWith('#')) {
+      if (location.pathname === '/') {
+        // We are already on the homepage, just scroll
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Navigate to homepage with hash
+        navigate(`/${href}`);
+      }
+    } else {
+      // It's a real path (like /blog)
+      navigate(href);
     }
   };
 
@@ -51,7 +78,7 @@ export default function Header({ onOpenInternshipModal }: HeaderProps) {
       <div className="header__inner container">
         {/* Dominova Logo */}
         <a
-          href="#home"
+          href="/"
           className="header__logo"
           aria-label="DOMINOVA — Home"
           onClick={(e) => {
@@ -69,7 +96,7 @@ export default function Header({ onOpenInternshipModal }: HeaderProps) {
               <li key={link.href} className="header__nav-item">
                 <a
                   href={link.href}
-                  className="header__nav-link"
+                  className={`header__nav-link ${location.pathname === link.href ? 'is-active' : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(link.href);

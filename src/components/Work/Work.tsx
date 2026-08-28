@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { projects as projectsDb } from '../../lib/data/db';
+import type { Project } from '../../lib/data/types';
 import './Work.css';
 
 interface ShowcaseProject {
@@ -8,30 +10,31 @@ interface ShowcaseProject {
   image: string;
 }
 
-const portfolioProjects: ShowcaseProject[] = [
-  {
-    id: 'proj-1',
-    title: 'ENTERPRISE SAAS ANALYTICS',
-    category: 'Custom Software Architecture',
-    image: '/images/showcase/portfolio.png',
-  },
-  {
-    id: 'proj-2',
-    title: 'RESPONSIVE WEB ECOSYSTEM',
-    category: 'Full-Stack Web Engineering',
-    image: '/images/showcase/web_dev.png',
-  },
-  {
-    id: 'proj-3',
-    title: 'CROSS-PLATFORM MOBILE APPLICATION',
-    category: 'iOS & Android App Engineering',
-    image: '/images/showcase/app_dev.png',
-  },
+// Static fallback data
+const staticProjects: ShowcaseProject[] = [
+  { id: 'proj-1', title: 'ENTERPRISE SAAS ANALYTICS', category: 'Custom Software Architecture', image: '/images/showcase/portfolio.png' },
+  { id: 'proj-2', title: 'RESPONSIVE WEB ECOSYSTEM', category: 'Full-Stack Web Engineering', image: '/images/showcase/web_dev.png' },
+  { id: 'proj-3', title: 'CROSS-PLATFORM MOBILE APPLICATION', category: 'iOS & Android App Engineering', image: '/images/showcase/app_dev.png' },
 ];
 
+function toDisplay(p: Project): ShowcaseProject {
+  return { id: p.id, title: p.title.toUpperCase(), category: p.category, image: p.image || '/images/showcase/portfolio.png' };
+}
+
 export default function Work() {
+  const [portfolioProjects, setPortfolioProjects] = useState<ShowcaseProject[]>(staticProjects);
   const [activeIdx, setActiveIdx] = useState(0);
-  const project = portfolioProjects[activeIdx];
+
+  useEffect(() => {
+    // Load published projects from admin CMS
+    const published = projectsDb.findPublished();
+    if (published.length > 0) {
+      setPortfolioProjects(published.map(toDisplay));
+    }
+  }, []);
+
+  const project = portfolioProjects[activeIdx] ?? portfolioProjects[0];
+  if (!project) return null;
 
   return (
     <section id="portfolio" className="section work">

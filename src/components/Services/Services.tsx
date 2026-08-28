@@ -1,7 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { services as servicesDb } from '../../lib/data/db';
+import type { Service } from '../../lib/data/types';
 import './Services.css';
 
-interface ServiceVisual {
+// Static fallback data (used if admin hasn't published any services yet)
+const staticServicesData = [
+  { id: 'web', num: '01', title: 'WEB DEVELOPMENT', sub: 'Polished responsive website interfaces, React & Next.js web applications.', image: '/images/showcase/web_dev.png', tags: ['React', 'Next.js', 'Node.js', 'PWA'] },
+  { id: 'app', num: '02', title: 'APP DEVELOPMENT', sub: 'Fluid cross-platform mobile apps for iOS and Android with custom UI.', image: '/images/showcase/app_dev.png', tags: ['Flutter', 'React Native', 'iOS', 'Android'] },
+  { id: 'uiux', num: '03', title: 'UI / UX DESIGN', sub: 'Design systems, wireframes, interface component libraries, and interactive prototypes.', image: '/images/showcase/ui_ux.png', tags: ['Design Systems', 'Figma', 'Prototyping'] },
+  { id: 'software', num: '04', title: 'CUSTOM SOFTWARE', sub: 'Enterprise SaaS automation, operational dashboards, and custom business workflows.', image: '/images/showcase/portfolio.png', tags: ['Microservices', 'Python', 'PostgreSQL', 'Docker'] },
+  { id: 'data', num: '05', title: 'AI & DATA ANALYTICS', sub: 'Business intelligence dashboards, predictive data models, and automated analytics.', image: '/images/showcase/ai_data.png', tags: ['Python', 'Pandas', 'Predictive Models', 'PowerBI'] },
+  { id: 'security', num: '06', title: 'CLOUD & CYBERSECURITY', sub: 'AWS cloud deployment, CI/CD pipeline automation, and threat monitoring dashboards.', image: '/images/showcase/cybersecurity.png', tags: ['AWS', 'DevOps', 'Penetration Testing', 'SIEM'] },
+];
+
+interface DisplayService {
   id: string;
   num: string;
   title: string;
@@ -10,60 +22,24 @@ interface ServiceVisual {
   tags: string[];
 }
 
-const servicesData: ServiceVisual[] = [
-  {
-    id: 'web',
-    num: '01',
-    title: 'WEB DEVELOPMENT',
-    sub: 'Polished responsive website interfaces, React & Next.js web applications.',
-    image: '/images/showcase/web_dev.png',
-    tags: ['React', 'Next.js', 'Node.js', 'PWA'],
-  },
-  {
-    id: 'app',
-    num: '02',
-    title: 'APP DEVELOPMENT',
-    sub: 'Fluid cross-platform mobile apps for iOS and Android with custom UI.',
-    image: '/images/showcase/app_dev.png',
-    tags: ['Flutter', 'React Native', 'iOS', 'Android'],
-  },
-  {
-    id: 'uiux',
-    num: '03',
-    title: 'UI / UX DESIGN',
-    sub: 'Design systems, wireframes, interface component libraries, and interactive prototypes.',
-    image: '/images/showcase/ui_ux.png',
-    tags: ['Design Systems', 'Figma', 'Prototyping'],
-  },
-  {
-    id: 'software',
-    num: '04',
-    title: 'CUSTOM SOFTWARE',
-    sub: 'Enterprise SaaS automation, operational dashboards, and custom business workflows.',
-    image: '/images/showcase/portfolio.png',
-    tags: ['Microservices', 'Python', 'PostgreSQL', 'Docker'],
-  },
-  {
-    id: 'data',
-    num: '05',
-    title: 'AI & DATA ANALYTICS',
-    sub: 'Business intelligence dashboards, predictive data models, and automated analytics.',
-    image: '/images/showcase/ai_data.png',
-    tags: ['Python', 'Pandas', 'Predictive Models', 'PowerBI'],
-  },
-  {
-    id: 'security',
-    num: '06',
-    title: 'CLOUD & CYBERSECURITY',
-    sub: 'AWS cloud deployment, CI/CD pipeline automation, and threat monitoring dashboards.',
-    image: '/images/showcase/cybersecurity.png',
-    tags: ['AWS', 'DevOps', 'Penetration Testing', 'SIEM'],
-  },
-];
+function toDisplay(s: Service): DisplayService {
+  return { id: s.id, num: s.num, title: s.title, sub: s.sub, image: s.image, tags: s.tags };
+}
 
 export default function Services() {
+  const [servicesData, setServicesData] = useState<DisplayService[]>(staticServicesData);
   const [activeIdx, setActiveIdx] = useState(0);
-  const current = servicesData[activeIdx];
+
+  useEffect(() => {
+    // Try to load published services from admin CMS
+    const published = servicesDb.findPublished();
+    if (published.length > 0) {
+      setServicesData(published.map(toDisplay));
+    }
+  }, []);
+
+  const current = servicesData[activeIdx] ?? servicesData[0];
+  if (!current) return null;
 
   return (
     <section id="services" className="section services">

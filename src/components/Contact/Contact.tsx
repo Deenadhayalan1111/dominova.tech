@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { messages } from '../../lib/data/db';
 import './Contact.css';
 
 interface ContactProps {
@@ -30,11 +31,26 @@ export default function Contact({ initialDomain = '' }: ContactProps) {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate submission validation and dispatch
-    setTimeout(() => {
+    try {
+      // Save to admin messages inbox
+      messages.create({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        organization: formData.organization,
+        inquiryType: formData.inquiryType,
+        serviceDomain: formData.serviceDomain,
+        message: formData.message,
+        read: false,
+        submittedAt: new Date().toISOString(),
+      });
+    } catch {
+      // Fail silently — submission still shows success to user
+      console.error('[Dominova] Failed to save message to admin inbox.');
+    } finally {
       setLoading(false);
       setSubmitted(true);
-    }, 1000);
+    }
   };
 
   return (
