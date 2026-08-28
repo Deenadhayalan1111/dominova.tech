@@ -1,0 +1,81 @@
+/* ============================================
+   App — DOMINOVA
+   ============================================ */
+
+.app {
+  overflow-x: hidden;
+}
+
+/* --- Skip Link --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--gold);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   Custom Cursor — DISABLED
+   Native browser cursor is always shown.
+   These styles are kept for reference only.
+   ============================================ */
+/*
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  transition: width 0.15s, height 0.15s, background 0.15s;
+  mix-blend-mode: normal;
+}
+
+.cursor-dot--active {
+  width: 4px;
+  height: 4px;
+  background: var(--gold-light);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  will-change: transform;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s;
+}
+
+.cursor-ring--active {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(212, 175, 55, 0.8);
+}
+
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+*/
+

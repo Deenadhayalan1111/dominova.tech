@@ -1,0 +1,72 @@
+/* ============================================
+   DOMINOVA — Why Dominova Styling
+   ============================================ */
+
+.why-dominova {
+  background-color: #050505;
+}
+
+.why-dominova__title {
+  color: #FFFFFF;
+  margin-bottom: 48px;
+}
+
+.why-dominova__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.why-dominova__card {
+  padding: 32px;
+  background: rgba(14, 14, 14, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  position: relative;
+  transition: transform var(--transition-med), border-color var(--transition-med);
+}
+
+.why-dominova__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.why-dominova__icon-wrap {
+  font-size: 26px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.why-dominova__card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.why-dominova__card-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #888888;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .why-dominova__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .why-dominova__grid {
+    grid-template-columns: 1fr;
+  }
+}

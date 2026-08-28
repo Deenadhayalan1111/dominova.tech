@@ -1,0 +1,76 @@
+/* ============================================
+   DOMINOVA — CTA Minimal Styling
+   ============================================ */
+
+.cta {
+  background-color: #050505;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  text-align: center;
+  padding: clamp(80px, 12vh, 140px) 0;
+}
+
+.cta__bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.02) 60%, transparent 80%);
+  pointer-events: none;
+}
+
+.cta__container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta__tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.cta__title {
+  color: #FFFFFF;
+  margin-bottom: 36px;
+}
+
+.cta__title-gold {
+  background: linear-gradient(135deg, #FFF3B0 0%, #E6C766 40%, #D4AF37 70%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta__btn {
+  height: 52px;
+}
+
+@media (max-width: 576px) {
+  .cta__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

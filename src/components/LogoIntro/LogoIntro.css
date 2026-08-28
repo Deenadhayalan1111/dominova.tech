@@ -1,0 +1,172 @@
+/* ============================================
+   DOMINOVA — Page-Load Logo Intro Styling
+   Luxury Black + Metallic Gold Reveal
+   ============================================ */
+
+.logo-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+
+.logo-intro--exit {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+/* Ambient Gold Radial Glow */
+.logo-intro__glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.05) 45%, transparent 70%);
+  animation: introGlowPulse 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes introGlowPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+/* Content Wrap */
+.logo-intro__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hexagon Emblem Animation */
+.logo-intro__emblem {
+  width: 140px;
+  height: 110px;
+  margin-bottom: 24px;
+}
+
+.logo-intro__emblem svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.35));
+}
+
+.hex {
+  opacity: 0;
+  transform-origin: center;
+}
+
+.hex--top {
+  animation: hexReveal 700ms cubic-bezier(0.16, 1, 0.3, 1) 200ms forwards;
+}
+
+.hex--left {
+  animation: hexReveal 700ms cubic-bezier(0.16, 1, 0.3, 1) 380ms forwards;
+}
+
+.hex--right {
+  animation: hexReveal 700ms cubic-bezier(0.16, 1, 0.3, 1) 560ms forwards;
+}
+
+@keyframes hexReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Wordmark Animation */
+.logo-intro__wordmark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, #FFF3B0 0%, #E6C766 30%, #D4AF37 60%, #996515 90%, #F3E5AB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: wordmarkFadeIn 800ms cubic-bezier(0.16, 1, 0.3, 1) 800ms forwards;
+}
+
+@keyframes wordmarkFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Gold Sweep Light Pass */
+.logo-intro__sweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-25deg);
+  animation: sweepLight 900ms ease-in-out 1200ms forwards;
+  pointer-events: none;
+}
+
+@keyframes sweepLight {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Subtext */
+.logo-intro__subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: #8A8A8A;
+  margin-top: 14px;
+  opacity: 0;
+  animation: subtextFade 600ms ease-out 1300ms forwards;
+}
+
+@keyframes subtextFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}

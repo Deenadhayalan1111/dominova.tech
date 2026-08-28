@@ -1,0 +1,156 @@
+/* ============================================
+   DOMINOVA — Internship Modal Styling
+   ============================================ */
+
+.intern-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.intern-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.intern-modal__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 580px;
+  background: #0A0A0A;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  padding: 40px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.intern-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  color: #888888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.intern-modal__close:hover {
+  color: var(--gold);
+}
+
+.intern-modal__badge {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.intern-modal__title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.intern-modal__sub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #888888;
+  margin-bottom: 24px;
+}
+
+.intern-modal__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.intern-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.intern-modal__field label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #AAAAAA;
+}
+
+.intern-modal__field input,
+.intern-modal__field select {
+  width: 100%;
+  padding: 12px 14px;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.intern-modal__field input:focus,
+.intern-modal__field select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.intern-modal__submit {
+  width: 100%;
+  justify-content: center;
+  height: 48px;
+  margin-top: 8px;
+}
+
+/* Success state */
+.intern-modal__success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.intern-modal__success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #000000;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.intern-modal__desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #B0B0B0;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 576px) {
+  .intern-modal__content {
+    padding: 24px;
+  }
+  .intern-modal__row {
+    grid-template-columns: 1fr;
+  }
+}

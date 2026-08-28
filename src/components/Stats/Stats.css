@@ -1,0 +1,48 @@
+/* ============================================
+   DOMINOVA — Stats Minimal Styling
+   ============================================ */
+
+.stats {
+  background-color: #0A0A0A;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 60px 0;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.stats__item {
+  text-align: center;
+  padding: 24px;
+}
+
+.stats__num {
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stats__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+@media (max-width: 992px) {
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,88 @@
+/* ============================================
+   DOMINOVA — Architectural Gold Tunnel Styling
+   ============================================ */
+
+.gold-tunnel {
+  position: relative;
+  width: 100%;
+  height: clamp(140px, 20vh, 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.gold-tunnel__portal {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gold-tunnel__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15), inset 0 0 20px rgba(212, 175, 55, 0.1);
+  animation: portalPulse 4s ease-in-out infinite alternate;
+}
+
+.gold-tunnel__ring--1 {
+  width: 220px;
+  height: 220px;
+  border-color: rgba(212, 175, 55, 0.2);
+  animation-delay: 0s;
+}
+
+.gold-tunnel__ring--2 {
+  width: 160px;
+  height: 160px;
+  border-color: rgba(212, 175, 55, 0.4);
+  animation-delay: 0.6s;
+}
+
+.gold-tunnel__ring--3 {
+  width: 100px;
+  height: 100px;
+  border-color: rgba(255, 226, 159, 0.6);
+  animation-delay: 1.2s;
+}
+
+.gold-tunnel__core-glow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 243, 176, 0.8) 0%, rgba(212, 175, 55, 0.3) 50%, transparent 80%);
+  filter: blur(4px);
+}
+
+.gold-tunnel__label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+@keyframes portalPulse {
+  0% {
+    transform: scale(0.95) rotate(0deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.05) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+

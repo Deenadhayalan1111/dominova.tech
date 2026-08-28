@@ -1,0 +1,87 @@
+/* ============================================
+   DOMINOVA — Process Engineering Tunnel Styling
+   ============================================ */
+
+.process {
+  background-color: #050505;
+}
+
+.process__title {
+  color: #FFFFFF;
+  margin-bottom: 40px;
+}
+
+.process__track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+}
+
+.process__node {
+  padding: 14px 20px;
+  background: #0F0F0F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.process__node:hover {
+  background: #161616;
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.process__node.is-active {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--gold);
+}
+
+.process__node-num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.process__node-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+}
+
+.process__checkpoint-box {
+  padding: clamp(36px, 6vw, 60px);
+  background: #0B0B0B;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.process__box-num {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  color: rgba(212, 175, 55, 0.18);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.process__box-title {
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.process__box-tagline {
+  color: var(--gold-light);
+}

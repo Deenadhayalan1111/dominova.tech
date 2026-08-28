@@ -1,0 +1,101 @@
+/* ============================================
+   STUDIO VIDEO COMPONENT (INDEPENDENT PLAYBACK)
+   ============================================ */
+
+.studio-video-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background, #050505);
+
+  /* Desktop: fill full viewport height, cinematic */
+  height: 100vh;
+  overflow: hidden;
+}
+
+.studio-video__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Desktop: full-bleed cinematic */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.studio-video__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 40%, rgba(5,5,5,0.8) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.studio-video__play-btn {
+  position: absolute;
+  z-index: 10;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 1px solid var(--gold, #d4af37);
+  color: var(--gold, #d4af37);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.studio-video__play-btn:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ——— TABLET ——— */
+@media (max-width: 1024px) {
+  .studio-video-container {
+    /* Use video's natural 16:9 ratio so nothing gets cropped */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .studio-video__video {
+    position: static;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* Show full video without cropping */
+  }
+
+  .studio-video__overlay {
+    position: absolute;
+  }
+}
+
+/* ——— MOBILE ——— */
+@media (max-width: 768px) {
+  .studio-video-container {
+    height: auto;
+    aspect-ratio: 16 / 9;  /* Preserve video proportions exactly */
+    overflow: hidden;
+  }
+
+  .studio-video__video {
+    position: static;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* Never crop on mobile */
+  }
+
+  .studio-video__overlay {
+    position: absolute;
+    /* Lighten the vignette on mobile so nothing is obscured */
+    background: radial-gradient(circle at center, transparent 50%, rgba(5,5,5,0.5) 100%);
+  }
+}
+
