@@ -17,11 +17,11 @@
 
 .header--scrolled {
   padding: 14px 0;
-  background: rgba(5, 5, 5, 0.88);
-  border-bottom-color: rgba(212, 175, 55, 0.14);
+  background: var(--header-bg-scrolled);
+  border-bottom-color: var(--header-border-scrolled);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--shadow-header);
 }
 
 .header__inner {
@@ -52,7 +52,7 @@
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: #A0A0A0;
+  color: var(--text-muted);
   text-transform: uppercase;
   position: relative;
   padding: 6px 0;
@@ -70,11 +70,13 @@
   transition: width var(--transition-fast);
 }
 
-.header__nav-link:hover {
-  color: #FFFFFF;
+.header__nav-link:hover,
+.header__nav-link.is-active {
+  color: var(--text-primary);
 }
 
-.header__nav-link:hover::after {
+.header__nav-link:hover::after,
+.header__nav-link.is-active::after {
   width: 100%;
 }
 
@@ -91,15 +93,15 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-dark);
   padding: 8px 14px;
   border-radius: 4px;
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 
 .header__sub-cta:hover {
-  color: #FFFFFF;
-  background: rgba(212, 175, 55, 0.1);
+  color: var(--text-primary);
+  background: var(--gold-subtle);
 }
 
 /* Mobile Hamburger */
@@ -154,7 +156,7 @@
 .header__mobile-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--modal-backdrop);
   backdrop-filter: blur(12px);
 }
 
@@ -165,14 +167,15 @@
   bottom: 0;
   width: 85%;
   max-width: 360px;
-  background: #0A0A0A;
-  border-left: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--color-bg-2);
+  border-left: 1px solid var(--color-border);
   padding: 100px 32px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transform: translateX(100%);
   transition: transform var(--transition-med);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .header__mobile--open .header__mobile-nav {
@@ -189,7 +192,7 @@
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 16px;

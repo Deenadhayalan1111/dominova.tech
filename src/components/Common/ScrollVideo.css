@@ -6,7 +6,7 @@
   width: 100%;
   height: 400vh; /* Controlled by ScrollTrigger scrub distance */
   position: relative;
-  background-color: var(--background, #050505);
+  background-color: var(--color-bg);
 }
 
 .scroll-video__viewport {

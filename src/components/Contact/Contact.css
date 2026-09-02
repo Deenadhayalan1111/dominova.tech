@@ -4,8 +4,8 @@
    ============================================ */
 
 .contact {
-  background-color: #050505;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
 }
 
 .contact__grid {
@@ -16,13 +16,13 @@
 }
 
 .contact__heading {
-  color: #FFFFFF;
+  color: var(--text-primary);
   line-height: 1.15;
   margin-bottom: 24px;
 }
 
 .contact__intro {
-  color: #A0A0A0;
+  color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 40px;
 }
@@ -47,33 +47,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--gold-subtle);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
 }
 
 .contact__detail-label {
   font-family: var(--font-body);
   font-size: 12px;
-  color: #777777;
+  color: var(--text-muted);
 }
 
 .contact__detail-val {
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--text-primary);
 }
 
 .contact__socials {
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--color-border-light);
 }
 
 .contact__social-label {
   font-family: var(--font-body);
   font-size: 13px;
-  color: var(--gold-light);
+  color: var(--gold-dark);
   display: block;
   margin-bottom: 12px;
 }
@@ -87,7 +87,7 @@
 .contact__social-link {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #CCCCCC;
+  color: var(--text-secondary);
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color var(--transition-fast);
@@ -100,17 +100,17 @@
 /* Form Wrap */
 .contact__form-wrap {
   padding: 40px;
-  background: #0A0A0A;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: var(--shadow-card);
 }
 
 .contact__form-title {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin-bottom: 24px;
 }
 
@@ -126,18 +126,18 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  background: rgba(20, 20, 20, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #888888;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-light);
+  color: var(--text-muted);
   border-radius: 3px;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .contact__type-btn.is-active {
-  background: rgba(212, 175, 55, 0.12);
+  background: var(--gold-subtle);
   border-color: var(--gold);
-  color: var(--gold-light);
+  color: var(--gold-dark);
 }
 
 .contact__form-row {
@@ -157,7 +157,7 @@
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
-  color: #AAAAAA;
+  color: var(--text-secondary);
   letter-spacing: 0.04em;
 }
 
@@ -166,10 +166,10 @@
 .contact__field textarea {
   width: 100%;
   padding: 12px 16px;
-  background: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 3px;
-  color: #FFFFFF;
+  color: var(--input-text);
   font-family: var(--font-body);
   font-size: 14px;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -180,7 +180,7 @@
 .contact__field textarea:focus {
   outline: none;
   border-color: var(--gold);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 0 3px var(--gold-subtle);
 }
 
 .contact__submit {
@@ -213,14 +213,14 @@
 .contact__success-title {
   font-family: var(--font-display);
   font-size: 24px;
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
 .contact__success-desc {
   font-family: var(--font-body);
   font-size: 15px;
-  color: #B0B0B0;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 32px;
 }

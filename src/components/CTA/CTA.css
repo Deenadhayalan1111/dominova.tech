@@ -3,11 +3,11 @@
    ============================================ */
 
 .cta {
-  background-color: #050505;
+  background-color: var(--color-bg);
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   text-align: center;
   padding: clamp(80px, 12vh, 140px) 0;
 }
@@ -19,7 +19,7 @@
   transform: translate(-50%, -50%);
   width: 700px;
   height: 400px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.02) 60%, transparent 80%);
+  background: radial-gradient(circle, var(--gold-glow) 0%, var(--gold-subtle) 60%, transparent 80%);
   pointer-events: none;
 }
 
@@ -42,12 +42,12 @@
 }
 
 .cta__title {
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin-bottom: 36px;
 }
 
 .cta__title-gold {
-  background: linear-gradient(135deg, #FFF3B0 0%, #E6C766 40%, #D4AF37 70%, #996515 100%);
+  background: var(--gold-title-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

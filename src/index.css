@@ -11,6 +11,9 @@
   --color-bg-2: #0a0a0a;
   --color-bg-3: #111111;
   --color-surface: #141414;
+  --color-surface-2: #181818;
+  --color-surface-hover: #1e1e1e;
+  --color-surface-glass: rgba(20, 20, 20, 0.75);
   --color-border: rgba(212, 175, 55, 0.15);
   --color-border-light: rgba(255, 255, 255, 0.07);
 
@@ -27,6 +30,29 @@
   --text-muted: #888888;
   --text-faint: #444444;
 
+  /* Interactive & Surfaces */
+  --btn-gold-hover-text: #000000;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.8);
+  --shadow-header: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --header-bg-scrolled: rgba(5, 5, 5, 0.88);
+  --header-border-scrolled: rgba(212, 175, 55, 0.14);
+  --overlay-gradient-1: linear-gradient(180deg, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.9) 100%);
+  --overlay-gradient-2: linear-gradient(90deg, rgba(5, 5, 5, 0.85) 0%, transparent 60%);
+  --gold-title-gradient: linear-gradient(135deg, #FFF099 0%, #E6C766 35%, #D4AF37 70%, #996515 100%);
+  --logo-wordmark-gradient: linear-gradient(135deg, #FFF099 0%, #D4AF37 40%, #AA7A1E 80%, #F3E5AB 100%);
+  --input-bg: #141414;
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-text: #FFFFFF;
+  --modal-backdrop: rgba(0, 0, 0, 0.85);
+
+  /* Aliases for Blog / Shared components */
+  --bg-surface: var(--color-surface);
+  --border-color: var(--color-border);
+  --text-main: var(--text-primary);
+  --font-primary: var(--font-display);
+  --font-secondary: var(--font-body);
+
   /* Typography */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -41,6 +67,55 @@
   --transition-med: 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-slow: 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-cinematic: 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Light Theme Design Tokens --- */
+[data-theme="light"] {
+  /* Colors */
+  --color-black: #000000;
+  --color-bg: #F7F8FA;
+  --color-bg-2: #FFFFFF;
+  --color-bg-3: #F1F3F5;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F8F9FA;
+  --color-surface-hover: #F3F4F6;
+  --color-surface-glass: rgba(255, 255, 255, 0.85);
+  --color-border: rgba(184, 134, 11, 0.22);
+  --color-border-light: rgba(0, 0, 0, 0.08);
+
+  /* Gold Palette */
+  --gold-dark: #8F6514;
+  --gold: #B8860B;
+  --gold-light: #7A5506;
+  --gold-subtle: rgba(184, 134, 11, 0.08);
+  --gold-glow: rgba(184, 134, 11, 0.15);
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6B7280;
+  --text-faint: #9CA3AF;
+
+  /* Interactive & Surfaces */
+  --btn-gold-hover-text: #FFFFFF;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-header: 0 4px 24px rgba(0, 0, 0, 0.05);
+  --header-bg-scrolled: rgba(247, 248, 250, 0.88);
+  --header-border-scrolled: rgba(0, 0, 0, 0.08);
+  --overlay-gradient-1: linear-gradient(180deg, rgba(247, 248, 250, 0.1) 0%, rgba(247, 248, 250, 0.94) 100%);
+  --overlay-gradient-2: linear-gradient(90deg, rgba(247, 248, 250, 0.92) 0%, transparent 65%);
+  --gold-title-gradient: linear-gradient(135deg, #996515 0%, #C9A227 40%, #8A5A00 80%, #6E4600 100%);
+  --logo-wordmark-gradient: linear-gradient(135deg, #8A5A00 0%, #B8860B 35%, #996515 70%, #6E4600 100%);
+  --input-bg: #FFFFFF;
+  --input-border: #E5E7EB;
+  --input-text: #111827;
+  --modal-backdrop: rgba(15, 23, 42, 0.45);
+
+  /* Aliases for Blog / Shared components */
+  --bg-surface: var(--color-surface);
+  --border-color: var(--color-border-light);
+  --text-main: var(--text-primary);
 }
 
 /* --- Reset --- */
@@ -242,7 +317,7 @@ ul {
 }
 
 .btn-gold:hover {
-  color: var(--color-black);
+  color: var(--btn-gold-hover-text);
 }
 
 .btn-gold span, .btn-gold svg {
@@ -255,7 +330,7 @@ ul {
   align-items: center;
   gap: 10px;
   padding: 14px 32px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--color-border-light);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 13px;
@@ -265,7 +340,7 @@ ul {
   background: transparent;
   position: relative;
   overflow: hidden;
-  transition: color var(--transition-med), background var(--transition-med);
+  transition: color var(--transition-med), background var(--transition-med), border-color var(--transition-med);
   cursor: pointer;
 }
 
@@ -273,7 +348,7 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.05);
+  background: rgba(128, 128, 128, 0.08);
   transform: translateX(-101%);
   transition: transform var(--transition-med);
   z-index: 0;
@@ -281,6 +356,25 @@ ul {
 
 .btn-white:hover::before {
   transform: translateX(0);
+}
+
+.btn-white span, .btn-white svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Dominova Wordmark Class --- */
+.dominova-wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  background: var(--logo-wordmark-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+  transition: background var(--transition-med);
 }
 
 /* --- Thin Gold Line --- */

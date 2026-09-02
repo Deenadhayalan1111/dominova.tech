@@ -7,6 +7,7 @@ import { seedDatabase } from './lib/data/seeds';
 
 // Public website components
 import PublicSite from './PublicSite';
+import { ThemeProvider } from './context/ThemeContext';
 
 // Admin panel (lazy-loaded — does NOT affect public bundle)
 const AdminApp = lazy(() => import('./admin/AdminApp'));
@@ -31,33 +32,35 @@ export default function App() {
   }, [isAdmin]);
 
   return (
-    <Routes>
-      {/* Admin area — lazy loaded, completely isolated */}
-      <Route
-        path="/admin/*"
-        element={
-          <Suspense fallback={
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '100vh',
-              background: '#050505',
-              color: '#D4AF37',
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: '14px',
-              letterSpacing: '0.1em',
-            }}>
-              Loading Admin Panel...
-            </div>
-          }>
-            <AdminApp />
-          </Suspense>
-        }
-      />
+    <ThemeProvider>
+      <Routes>
+        {/* Admin area — lazy loaded, completely isolated */}
+        <Route
+          path="/admin/*"
+          element={
+            <Suspense fallback={
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100vh',
+                background: '#050505',
+                color: '#D4AF37',
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: '14px',
+                letterSpacing: '0.1em',
+              }}>
+                Loading Admin Panel...
+              </div>
+            }>
+              <AdminApp />
+            </Suspense>
+          }
+        />
 
-      {/* Public website — all routes fallthrough to single-page app */}
-      <Route path="/*" element={<PublicSite />} />
-    </Routes>
+        {/* Public website — all routes fallthrough to single-page app */}
+        <Route path="/*" element={<PublicSite />} />
+      </Routes>
+    </ThemeProvider>
   );
 }

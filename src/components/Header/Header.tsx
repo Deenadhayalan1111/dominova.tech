@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import DominovaLogo from '../Common/DominovaLogo';
+import ThemeToggle from '../Common/ThemeToggle';
 import './Header.css';
 
 const navLinks = [
@@ -111,6 +112,8 @@ export default function Header({ onOpenInternshipModal }: HeaderProps) {
 
         {/* Actions */}
         <div className="header__actions">
+          <ThemeToggle />
+
           {onOpenInternshipModal && (
             <button
               onClick={onOpenInternshipModal}
@@ -176,6 +179,8 @@ export default function Header({ onOpenInternshipModal }: HeaderProps) {
           </ul>
 
           <div className="header__mobile-actions">
+            <ThemeToggle showLabel={true} className="theme-toggle--full" />
+
             <a
               href="#contact"
               className="btn-gold header__mobile-btn"

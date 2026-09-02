@@ -1,0 +1,98 @@
+/* ============================================
+   DOMINOVA — Theme Toggle Styling
+   ============================================ */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--gold);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 0 14px var(--gold-glow);
+  color: var(--gold-light);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon-wrap {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* In Dark theme, show Sun (switch to light) */
+.theme-toggle--dark .theme-toggle__icon--sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle--dark .theme-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+  pointer-events: none;
+}
+
+/* In Light theme, show Moon (switch to dark) */
+.theme-toggle--light .theme-toggle__icon--sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+  pointer-events: none;
+}
+
+.theme-toggle--light .theme-toggle__icon--moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Mobile full-width variant */
+.theme-toggle--full {
+  width: 100%;
+  height: 44px;
+  border-radius: 4px;
+  padding: 0 16px;
+  justify-content: flex-start;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.theme-toggle__label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}

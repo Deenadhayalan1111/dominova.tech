@@ -99,16 +99,7 @@ export const DominovaLogo: React.FC<DominovaLogoProps> = ({
         <span
           className="dominova-wordmark"
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontWeight: 700,
             fontSize: '1.25rem',
-            letterSpacing: '0.18em',
-            background: 'linear-gradient(135deg, #FFF099 0%, #D4AF37 40%, #AA7A1E 80%, #F3E5AB 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            textTransform: 'uppercase',
-            whiteSpace: 'nowrap',
-            lineHeight: 1,
           }}
         >
           DOMINOVA

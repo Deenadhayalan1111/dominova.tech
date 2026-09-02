@@ -3,7 +3,7 @@
    ============================================ */
 
 .internship {
-  background-color: #050505;
+  background-color: var(--color-bg);
 }
 
 .internship__showcase-card {
@@ -12,8 +12,9 @@
   height: clamp(420px, 60vh, 580px);
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid var(--color-border);
   margin-top: 24px;
+  box-shadow: var(--shadow-card);
 }
 
 .internship__image-wrap {
@@ -35,8 +36,7 @@
 .internship__image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.9) 100%),
-              linear-gradient(90deg, rgba(5, 5, 5, 0.85) 0%, transparent 60%);
+  background: var(--overlay-gradient-1), var(--overlay-gradient-2);
 }
 
 .internship__content-overlay {
@@ -61,13 +61,13 @@
 }
 
 .internship__heading {
-  color: #FFFFFF;
+  color: var(--text-primary);
   line-height: 1;
   margin-bottom: 16px;
 }
 
 .internship__sub {
-  color: #CCCCCC;
+  color: var(--text-secondary);
   max-width: 580px;
   margin-bottom: 28px;
 }

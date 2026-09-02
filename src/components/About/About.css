@@ -3,9 +3,9 @@
    ============================================ */
 
 .about {
-  background-color: #0A0A0A;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  background-color: var(--color-bg-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .about__showcase-card {
@@ -14,8 +14,9 @@
   height: clamp(400px, 60vh, 560px);
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--color-border);
   margin-top: 24px;
+  box-shadow: var(--shadow-card);
 }
 
 .about__image-wrap {
@@ -37,8 +38,7 @@
 .about__image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.85) 100%),
-              linear-gradient(90deg, rgba(5, 5, 5, 0.85) 0%, transparent 60%);
+  background: var(--overlay-gradient-1), var(--overlay-gradient-2);
 }
 
 .about__content-overlay {
@@ -63,7 +63,7 @@
 }
 
 .about__heading {
-  color: #FFFFFF;
+  color: var(--text-primary);
   line-height: 1.1;
   margin-bottom: 24px;
 }
@@ -76,9 +76,10 @@
 .about__drawer {
   margin-top: 24px;
   padding: 36px;
-  background: #101010;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
+  box-shadow: var(--shadow-card);
   animation: drawerSlide 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 

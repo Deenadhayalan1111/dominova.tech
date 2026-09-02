@@ -3,9 +3,9 @@
    ============================================ */
 
 .stats {
-  background-color: #0A0A0A;
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  background-color: var(--color-bg-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   padding: 60px 0;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .stats__num {
-  color: #FFFFFF;
+  color: var(--text-primary);
   line-height: 1;
   margin-bottom: 12px;
 }
@@ -32,7 +32,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-dark);
 }
 
 @media (max-width: 992px) {

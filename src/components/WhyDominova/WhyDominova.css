@@ -3,11 +3,11 @@
    ============================================ */
 
 .why-dominova {
-  background-color: #050505;
+  background-color: var(--color-bg);
 }
 
 .why-dominova__title {
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin-bottom: 48px;
 }
 
@@ -19,16 +19,18 @@
 
 .why-dominova__card {
   padding: 32px;
-  background: rgba(14, 14, 14, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
   border-radius: 4px;
   position: relative;
-  transition: transform var(--transition-med), border-color var(--transition-med);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-med), border-color var(--transition-med), box-shadow var(--transition-med);
 }
 
 .why-dominova__card:hover {
   transform: translateY(-4px);
-  border-color: rgba(212, 175, 55, 0.3);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .why-dominova__icon-wrap {
@@ -38,8 +40,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--gold-subtle);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   margin-bottom: 20px;
 }
@@ -48,14 +50,14 @@
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin-bottom: 10px;
 }
 
 .why-dominova__card-desc {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #888888;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 

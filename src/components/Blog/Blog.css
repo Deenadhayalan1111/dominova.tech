@@ -126,7 +126,8 @@
 .blog-search-input:focus {
   outline: none;
   border-color: var(--gold);
-  background: #111;
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px var(--gold-subtle);
 }
 
 /* ── Featured Card ────────────────────────── */
@@ -147,7 +148,7 @@
 .blog-featured-card:hover {
   border-color: rgba(212, 175, 55, 0.4);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .blog-featured-image-wrap {
@@ -251,9 +252,9 @@
 }
 
 .blog-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--gold);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .blog-card-image-wrap {
@@ -456,7 +457,7 @@
   font-family: var(--font-secondary);
   font-size: 1.125rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   padding: 0 20px;
 }
 
