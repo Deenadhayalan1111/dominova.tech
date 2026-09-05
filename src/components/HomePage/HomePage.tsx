@@ -11,6 +11,7 @@ import Internship from '../Internship/Internship';
 import Stats from '../Stats/Stats';
 import Process from '../Process/Process';
 import Work from '../Work/Work';
+import FAQ from '../FAQ/FAQ';
 import CTA from '../CTA/CTA';
 import Contact from '../Contact/Contact';
 
@@ -27,46 +28,49 @@ export default function HomePage({ onOpenInternshipModal, selectedDomain }: Home
 
   return (
     <main id="main-content">
-      {/* 3. Hero */}
+      {/* 1. Hero */}
       <CinematicHero onOpenInternshipModal={() => onOpenInternshipModal()} />
 
-      {/* Spatial Tunnel Transition */}
+      {/* Spatial Tunnel Video Transition */}
       <GoldTunnel videoSrc="/videos/now_create_a_video.mp4" />
 
-      {/* 4. About */}
+      {/* 2. About */}
       <About />
 
-      {/* 5. Services Showcase */}
+      {/* 3. Services Showcase */}
       <Services />
 
       {/* Spatial Tunnel Transition */}
       <GoldTunnel label="INFRASTRUCTURE ECOSYSTEM" />
 
-      {/* 6. Technology Capabilities */}
+      {/* 4. Technology Capabilities */}
       <Technology />
 
-      {/* 7. Why Dominova */}
+      {/* 5. Why Dominova */}
       <WhyDominova />
 
-      {/* 8. Internship Program */}
+      {/* 6. Internship Program */}
       <Internship onApplyDomain={(domain) => onOpenInternshipModal(domain)} />
 
-      {/* 9. Animated Stats */}
+      {/* 7. Animated Stats */}
       <Stats />
 
-      {/* 10. Process Tunnel */}
+      {/* 8. Process Tunnel */}
       <Process />
 
       {/* Spatial Tunnel Transition */}
       <GoldTunnel label="FEATURED PROJECT SHOWCASE" />
 
-      {/* 11. Spatial Portfolio */}
+      {/* 9. Spatial Portfolio */}
       <Work />
 
-      {/* 12. Final CTA */}
+      {/* 10. Frequently Asked Questions */}
+      <FAQ />
+
+      {/* 11. Final CTA */}
       <CTA onOpenInternshipModal={() => onOpenInternshipModal()} />
 
-      {/* 13. Contact Form */}
+      {/* 12. Contact Form */}
       <Contact initialDomain={selectedDomain} />
     </main>
   );

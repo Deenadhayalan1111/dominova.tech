@@ -92,23 +92,24 @@ export default function CinematicHero({ onOpenInternshipModal }: CinematicHeroPr
       <div className="container hero__container">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          <span className="hero__badge-text">DOMINOVA &bull; DIGITAL SHOWROOM</span>
+          <span className="hero__badge-text">DOMINOVA &bull; ENTERPRISE TECH & INTERNSHIPS</span>
         </div>
 
         {/* Minimal High-Impact Headline */}
         <h1 className="hero__title">
-          WE BUILD <br />
-          <span className="hero__title-gold">DIGITAL EXPERIENCES</span>
+          BUILD SKILLS. <br />
+          <span className="hero__title-gold">BUILD SOFTWARE.</span> <br />
+          BUILD YOUR FUTURE.
         </h1>
 
         <p className="hero__subtitle">
-          Enterprise software development &bull; High-performance web systems &bull; Industry internships
+          Dominova delivers custom enterprise web & mobile software solutions for businesses while empowering students with real-world engineering projects and mentorship in Chennai.
         </p>
 
         {/* Primary Action */}
         <div className="hero__actions">
-          <button onClick={() => scrollTo('#contact')} className="btn-gold hero__btn">
-            <span>Start a Project</span>
+          <button onClick={() => scrollTo('#services')} className="btn-gold hero__btn">
+            <span>Explore Services</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -121,9 +122,25 @@ export default function CinematicHero({ onOpenInternshipModal }: CinematicHeroPr
           )}
         </div>
 
+        {/* Highlights Pill Row */}
+        <div className="hero__pills">
+          <div className="hero__pill">
+            <span className="hero__pill-dot" />
+            <span>Chennai Headquarters</span>
+          </div>
+          <div className="hero__pill">
+            <span className="hero__pill-dot" />
+            <span>100% Real Production Code</span>
+          </div>
+          <div className="hero__pill">
+            <span className="hero__pill-dot" />
+            <span>Live Mentor Guidance</span>
+          </div>
+        </div>
+
         {/* Scroll Indicator */}
         <div className="hero__scroll-indicator">
-          <span className="hero__scroll-text">SCROLL TO ENTER</span>
+          <span className="hero__scroll-text">SCROLL TO EXPLORE</span>
           <div className="hero__scroll-line" />
         </div>
       </div>

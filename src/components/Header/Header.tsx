@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Technology', href: '#technology' },
   { label: 'Internships', href: '#internship' },
   { label: 'Portfolio', href: '#portfolio' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ];

@@ -77,9 +77,9 @@
 /* Title */
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(42px, 7vw, 84px);
+  font-size: clamp(42px, 6.5vw, 80px);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: 24px;
@@ -101,7 +101,7 @@
   line-height: 1.65;
   color: var(--text-muted);
   max-width: 720px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 /* Actions */
@@ -110,12 +110,43 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .hero__btn {
   height: 52px;
   border-radius: 2px;
+}
+
+/* Hero Value Highlights */
+.hero__pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border-light);
+  width: 100%;
+  max-width: 720px;
+}
+
+.hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.hero__pill-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* Scroll Indicator */
@@ -124,7 +155,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .hero__scroll-text {
