@@ -111,6 +111,7 @@
   display: inline-block;
   background: linear-gradient(135deg, #FFF3B0 0%, #E6C766 30%, #D4AF37 60%, #996515 90%, #F3E5AB 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0;
   transform: translateY(12px);

@@ -103,8 +103,8 @@
   --shadow-header: 0 4px 24px rgba(0, 0, 0, 0.05);
   --header-bg-scrolled: rgba(247, 248, 250, 0.88);
   --header-border-scrolled: rgba(0, 0, 0, 0.08);
-  --overlay-gradient-1: linear-gradient(180deg, rgba(247, 248, 250, 0.1) 0%, rgba(247, 248, 250, 0.94) 100%);
-  --overlay-gradient-2: linear-gradient(90deg, rgba(247, 248, 250, 0.92) 0%, transparent 65%);
+  --overlay-gradient-1: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.75) 100%);
+  --overlay-gradient-2: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, transparent 60%);
   --gold-title-gradient: linear-gradient(135deg, #996515 0%, #C9A227 40%, #8A5A00 80%, #6E4600 100%);
   --logo-wordmark-gradient: linear-gradient(135deg, #8A5A00 0%, #B8860B 35%, #996515 70%, #6E4600 100%);
   --input-bg: #FFFFFF;
@@ -370,6 +370,7 @@ ul {
   letter-spacing: 0.18em;
   background: var(--logo-wordmark-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   white-space: nowrap;

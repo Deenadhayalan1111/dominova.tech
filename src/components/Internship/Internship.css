@@ -61,13 +61,13 @@
 }
 
 .internship__heading {
-  color: var(--text-primary);
+  color: #FFFFFF;
   line-height: 1;
   margin-bottom: 16px;
 }
 
 .internship__sub {
-  color: var(--text-secondary);
+  color: #CCCCCC;
   max-width: 580px;
   margin-bottom: 28px;
 }
